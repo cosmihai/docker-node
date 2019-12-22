@@ -7,7 +7,7 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-mongoose.connect('mongodb://localhost:27017/mongoDocker',  
+mongoose.connect('mongodb://mongo:27017/mongoDocker',  
 {
   useNewUrlParser: true,
   useFindAndModify: false,
