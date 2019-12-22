@@ -1,0 +1,29 @@
+<div class="container">
+  <h1 class="text-center text-secondary">Add to do</h1>
+  <form class="mb-5" action="/todos" method="post">
+    <div class="form-group">
+      <input class="form-control mb-2" type="text" name="todo" placeholder="add a new to do ...">
+      {{#if message}}
+      <p class="text-danger">Must be at least 6 characteres long</p>
+      {{/if}}
+      <button class="btn btn-outline-primary btn-block" type="submit">Add</button>
+    </div>
+  </form>
+  <h1 class="text-secondary">To do list</h1>
+  {{#unless toDos}}
+  <p class="text-info">Nothing to do...</p>
+  {{/unless}}
+  <ul class="list-group">
+    {{#each toDos}}
+    <li class="list-group-item">{{ this.description }}
+      <div class="float-right form-inline">
+        <form class="" action="/todos/delete/{{this._id}}" method="post">
+          <button type="submit" class="btn btn-sm">
+            <i class="fas fa-trash-alt text-danger"></i>
+          </button>
+        </form>
+      </div>
+    </li>
+    {{/each}}
+  </ul>
+</div>
